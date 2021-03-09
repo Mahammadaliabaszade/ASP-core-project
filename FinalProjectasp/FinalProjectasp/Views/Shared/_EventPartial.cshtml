@@ -1,0 +1,27 @@
+﻿@model List<Event>;
+@{
+    Layout = null;
+}
+
+@foreach (Event ev in Model)
+{
+    <div class="col-md-4 col-sm-8 col-xs-8">
+        <div class="single-event mb-35">
+            <div class="event-img">
+                <a href="event-details.html"><img src="~/img/event/@ev.Image" alt="event"></a>
+            </div>
+            <div class="event-content text-left">
+                <h3>@ev.Day</h3>
+                <h4><a href="event-details.html">@ev.EventName</a></h4>
+                <ul>
+                    <li><i class="fa fa-clock-o"></i>@ev.StartTime</li>
+                    <li><i class="fa fa-map-marker"></i>@ev.Location</li>
+                </ul>
+                <div class="event-content-right">
+                    <a class="default-btn" href="event-details.html">join now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

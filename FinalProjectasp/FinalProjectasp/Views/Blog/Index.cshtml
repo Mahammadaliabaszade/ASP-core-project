@@ -1,0 +1,54 @@
+﻿@model List<Blog>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="banner-area-wrapper" style="margin-bottom:45px;">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Blog</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <div class="row belement">
+        @foreach (Blog blog in Model)
+        {
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="single-blog" style="margin-bottom:30px;">
+                    <div class="blog-img">
+                        <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id"><img src="~/img/blog/@blog.Image" alt="blog"></a>
+                        <div class="blog-hover">
+                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-top">
+                            <p>@blog.Writer /  @blog.Time  /  <i class="fa fa-comments-o"></i> @blog.ReadCount  </p>
+                        </div>
+                        <div class="blog-bottom">
+                            <h2><a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id" >@blog.Title </a></h2>
+                            <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+
+    <div class="row fa-align-justify">
+        <input type="hidden" value="@ViewBag.bcount" id="bcount" />
+        <button class="btn btn-success btn-lg" id="loadMore4" style="margin-left:540px">See other..</button>
+    </div>
+</div>

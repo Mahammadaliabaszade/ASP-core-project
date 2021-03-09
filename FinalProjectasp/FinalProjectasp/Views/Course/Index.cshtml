@@ -1,0 +1,51 @@
+﻿@model List<Course>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="banner-area-wrapper" style="margin-bottom:45px;">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Courses</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row courseelement">
+        @foreach (Course course in Model)
+        {
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="single-course" style="margin-bottom:30px;" >
+                    <div class="course-img">
+                        <a asp-controller="Course" asp-action="Details" asp-route-id="@course.Id">
+                            <img src="~/img/course/@course.Image" alt="course"  asp-controller="Course" asp-action="Details" asp-route-id="@course.Id" >
+                            <div class="course-hover">
+                                <i class="fa fa-link"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="course-content">
+                        <h3><a  asp-controller="Course" asp-action="Details" asp-route-id="@course.Id">@course.Name</a></h3>
+                        <p>@course.Description</p>
+                        <a class="default-btn" asp-controller="Course" asp-action="Details" asp-route-id="@course.Id">read more</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+
+  <div class="row fa-align-justify">
+      <input type="hidden" value="@ViewBag.Coursecount" id="Coursecount" />
+      <button class="btn btn-success btn-lg" id="loadMore" style="margin-left:540px">Load more..</button>
+  </div>
+</div>

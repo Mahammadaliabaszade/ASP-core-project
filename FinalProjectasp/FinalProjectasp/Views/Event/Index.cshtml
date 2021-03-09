@@ -1,0 +1,57 @@
+﻿@model List<Event>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="banner-area-wrapper" style="margin-bottom:45px;">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>event</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row eventelement">
+
+        @foreach (Event ev in Model)
+        {
+            <div class="col-md-4 col-sm-8 col-xs-8">
+                <div class="single-event mb-35">
+                    <div class="event-img">
+                        <a asp-controller="Event" asp-action="Details" asp-route-id="@ev.Id"><img src="~/img/event/@ev.Image" alt="event"></a>
+                    </div>
+                    <div class="event-content text-left" style="padding-left: 30px;">
+                        <h3>@ev.Day</h3>
+                        <h4><a href="event-details.html">@ev.EventName</a></h4>
+                        <ul>
+                            <li><i class="fa fa-clock-o"></i>@ev.StartTime</li>
+                            <li><i class="fa fa-map-marker"></i>@ev.Location</li>
+                        </ul>
+                        <div class="event-content-right">
+                            <a class="default-btn" asp-controller="Event" asp-action="Details" asp-route-id="@ev.Id">join now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+
+
+    </div>
+    <div class="row fa-align-justify">
+        <input type="hidden" value="@ViewBag.Eventcount" id="eventcount" />
+        <button class="btn btn-success btn-lg" id="loadMore2" style="margin-left:540px">Load more..</button>
+    </div>
+</div>
+
+
