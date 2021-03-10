@@ -1,0 +1,17 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row">
+    <img src="~/img/@Model.Image" alt="Alternate Text" width="300" />
+    <p class="text-danger">Are you sure?</p>
+</div>
+<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+<div class="row">
+    <form method="post">
+        <input type="submit" class="btn btn-danger" value="Delete" />
+    </form>
+    <a asp-action="Index" class="btn btn-secondary mx-4">Cancel</a>
+</div>
+

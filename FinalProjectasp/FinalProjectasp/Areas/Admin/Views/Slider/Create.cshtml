@@ -1,0 +1,28 @@
+﻿@model Slider;
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Slider</h4>
+
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label asp-for="Photos">Select Photo</label>
+                        <input asp-for="Photos" class="form-control" placeholder="Photo">
+                        <span asp-validation-for="Photos"></span>
+                    </div>
+                    
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
